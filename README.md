@@ -28,3 +28,5 @@ Braj is a mobile app that allows users to track runs and log them alongside rele
 ### Social Media Network
 - Displays other users and their runs
 - Allows users to find other runners with similar run information/statistics
+- Stores user data in txt file to replicate database
+- Database is updated based on current user actions
