@@ -1,12 +1,45 @@
+import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 
 export default function TabLayout() {
     return (
         <Tabs>
-            <Tabs.Screen name="index" options={{ title: "Account" }}/>
-            <Tabs.Screen name="log" options={{ title: "Run Log" }}/>
-            <Tabs.Screen name="run" options={{ title: "Start Run" }}/>
-            <Tabs.Screen name="network" options={{ title: "Social Media "}}/>
+            <Tabs.Screen 
+                name="index" 
+                options={{ 
+                    title: "Account",
+                    tabBarIcon: ({ color, focused }) => (
+                        <MaterialCommunityIcons name={focused ? "account-circle" : "account-circle-outline"} color={color} size={24}/>
+                    ),
+                }}
+            />
+            <Tabs.Screen 
+                name="log" 
+                options={{ 
+                    title: "Run Log",
+                    tabBarIcon: ({ color, focused }) => (
+                        <Ionicons name={focused ? "list-circle-sharp" : "list-circle-outline"} color={color} size={24}/>
+                    ), 
+                }}
+            />
+            <Tabs.Screen 
+                name="run" 
+                options={{ 
+                    title: "Start Run",
+                    tabBarIcon: ({ color, focused })  => (
+                        <Ionicons name={focused ? "timer-sharp" : "timer-outline"} color={color} size={24}/>
+                    ),
+                }}
+            />
+            <Tabs.Screen 
+                name="network" 
+                options={{ 
+                    title: "Social Media",
+                    tabBarIcon: ({ color, focused }) => (
+                        <Ionicons name={focused ? "people-sharp" : "people-outline"} color={color} size={24}/>
+                    ),
+                }}
+            />
         </Tabs>
     );
 }
