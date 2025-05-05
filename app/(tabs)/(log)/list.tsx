@@ -1,9 +1,12 @@
+import { Href, Link } from "expo-router";
 import { StyleSheet, View } from "react-native";
 
 export default function RunLogScreen() {
     return (
         <View style={styles.container}>
-
+          <Link href={"/detail" as Href}>
+            go to detail
+          </Link>
         </View>
     );
 }

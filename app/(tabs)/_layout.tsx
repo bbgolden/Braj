@@ -22,7 +22,7 @@ export default function TabLayout() {
                 }}
             />
             <Tabs.Screen 
-                name="log" 
+                name="(log)" 
                 options={{ 
                     title: "Run Log",
                     headerShown: false,
