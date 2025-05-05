@@ -1,9 +1,9 @@
 import { Href, Link } from "expo-router";
-import { Image, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 
 export default function AccountScreen() {
   return (
-    <View>
+    <View style={styles.container}>
       <Image/>
       <Text>
         username
@@ -14,3 +14,10 @@ export default function AccountScreen() {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#545454",
+  }
+});
