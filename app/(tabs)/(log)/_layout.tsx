@@ -6,8 +6,7 @@ export default function LogLayout() {
             <Stack.Screen 
                 name="list" 
                 options={{
-                    title: "Run Log", 
-                    headerShown: false,
+                    title: "Run Log",
                 }}
             />
             <Stack.Screen 
