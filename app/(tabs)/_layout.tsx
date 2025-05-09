@@ -27,7 +27,7 @@ export default function TabLayout() {
             />
             <Tabs.Screen 
                 name="(log)" 
-                options={{ 
+                options={{
                     title: "Run Log",
                     headerShown: false,
                     tabBarIcon: ({ color, focused }) => (
@@ -47,7 +47,7 @@ export default function TabLayout() {
             <Tabs.Screen 
                 name="network" 
                 options={{ 
-                    title: "Social Media",
+                    title: "Connect",
                     tabBarIcon: ({ color, focused }) => (
                         <Ionicons name={focused ? "people-sharp" : "people-outline"} color={color} size={24}/>
                     ),

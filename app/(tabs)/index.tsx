@@ -9,7 +9,7 @@ export default function AccountScreen() {
     <View style={styles.container}>
 
       <Image
-        source={{ uri: "https://blog.logrocket.com/wp-content/uploads/2023/01/set-border-radius-inner-view-1.png" }}
+        source={{ uri: "Braj/assets/images/react-logo@3x.png" }}
         style={styles.profilePicture}
       />
 
