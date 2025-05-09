@@ -6,24 +6,28 @@ export default function TabLayout() {
         <Tabs
             screenOptions={{
                 tabBarActiveTintColor: "#ca4d0b",
+                headerStyle: {
+                    backgroundColor: "#545454",
+                },
+                headerShadowVisible: false,
+                headerTintColor: "#ca4d0b",
                 tabBarStyle: {
                     backgroundColor: "#545454",
-                }
+                },
             }}
         >
             <Tabs.Screen 
                 name="index" 
                 options={{ 
                     title: "Account",
-                    headerShown: false,
                     tabBarIcon: ({ color, focused }) => (
                         <MaterialCommunityIcons name={focused ? "account-circle" : "account-circle-outline"} color={color} size={24}/>
                     ),
                 }}
             />
             <Tabs.Screen 
-                name="log" 
-                options={{ 
+                name="(log)" 
+                options={{
                     title: "Run Log",
                     headerShown: false,
                     tabBarIcon: ({ color, focused }) => (
@@ -35,7 +39,6 @@ export default function TabLayout() {
                 name="run" 
                 options={{ 
                     title: "Start Run",
-                    headerShown: false,
                     tabBarIcon: ({ color, focused })  => (
                         <Ionicons name={focused ? "timer-sharp" : "timer-outline"} color={color} size={24}/>
                     ),
@@ -44,8 +47,7 @@ export default function TabLayout() {
             <Tabs.Screen 
                 name="network" 
                 options={{ 
-                    title: "Social Media",
-                    headerShown: false,
+                    title: "Connect",
                     tabBarIcon: ({ color, focused }) => (
                         <Ionicons name={focused ? "people-sharp" : "people-outline"} color={color} size={24}/>
                     ),
