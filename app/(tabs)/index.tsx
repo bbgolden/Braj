@@ -1,20 +1,25 @@
 import { Href, Link } from "expo-router";
-import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, useWindowDimensions, View } from "react-native";
+import { getItem } from "../../utils/Storage.js";
 
-const deviceHeight = Dimensions.get("window").height;
-const deviceWidth = Dimensions.get("window").width;
+const {height, width} = useWindowDimensions();
 
 export default function AccountScreen() {
+
+  let state = {
+    username: getItem("username"),
+  }
+
   return (
     <View style={styles.container}>
 
       <Image
-        source={{ uri: "Braj/assets/images/react-logo@3x.png" }}
+        source={{ uri: Image.resolveAssetSource(require("../../assets/images/react-logo.png")).uri }}
         style={styles.profilePicture}
       />
 
       <Text style={styles.header}>
-        account name
+        { getItem("username") }
       </Text>
 
       <Link href={"/list" as Href}>
@@ -44,26 +49,26 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   profilePicture: {
-    height: deviceHeight / 10,
-    width: deviceHeight / 10,
+    height: height / 10,
+    width: height / 10,
     borderRadius: 60,
     borderWidth: 3,
     borderColor: "#ca4d0b",
   },
   header: {
-    fontSize: deviceHeight / 40,
+    fontSize: height / 40,
     color: "#ca4d0b",
     fontWeight: "bold",
   },
   previewBox: {
-    height: deviceHeight / 4,
-    width: deviceWidth * 4 / 5,
+    height: height / 4,
+    width: width * 4 / 5,
     borderWidth: 2,
     borderColor: "#ec690d",
   },
   statsBox: {
-    height: deviceHeight / 3,
-    width: deviceWidth,
+    height: height / 3,
+    width: width,
     alignItems: "center",
     justifyContent: "center",
   }
