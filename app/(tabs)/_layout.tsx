@@ -17,9 +17,10 @@ export default function TabLayout() {
             }}
         >
             <Tabs.Screen 
-                name="index" 
+                name="(account)" 
                 options={{ 
                     title: "Account",
+                    headerShown: false,
                     tabBarIcon: ({ color, focused }) => (
                         <MaterialCommunityIcons name={focused ? "account-circle" : "account-circle-outline"} color={color} size={24}/>
                     ),
@@ -41,15 +42,6 @@ export default function TabLayout() {
                     title: "Start Run",
                     tabBarIcon: ({ color, focused })  => (
                         <Ionicons name={focused ? "timer-sharp" : "timer-outline"} color={color} size={24}/>
-                    ),
-                }}
-            />
-            <Tabs.Screen 
-                name="network" 
-                options={{ 
-                    title: "Connect",
-                    tabBarIcon: ({ color, focused }) => (
-                        <Ionicons name={focused ? "people-sharp" : "people-outline"} color={color} size={24}/>
                     ),
                 }}
             />
