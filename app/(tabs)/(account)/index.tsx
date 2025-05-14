@@ -1,24 +1,24 @@
 import { Href, Link } from "expo-router";
-import { useState } from "react";
 import { Image, StyleSheet, Text, useWindowDimensions, View } from "react-native";
-import { getItem } from "../../utils/Storage.js";
+import { getItem } from "../../../utils/Storage.js";
 
 export default function AccountScreen() {
 
   const styles = useStyles();
-  const [username] = useState(getItem("username"));
 
   return (
     <View style={styles.container}>
 
       <Image
-        source={{ uri: Image.resolveAssetSource(require("../../assets/images/react-logo.png")).uri }}
+        source={{ uri: Image.resolveAssetSource(require("../../../assets/images/react-logo.png")).uri }}
         style={styles.profilePicture}
       />
 
-      <Text style={styles.header}>
-        { username }
-      </Text>
+      <Link href={"/info-change" as Href}>
+        <Text style={styles.header}>
+          { getItem("username") }
+        </Text>
+      </Link>
 
       <Link href={"/list" as Href}>
         <View style={styles.previewBox}>
