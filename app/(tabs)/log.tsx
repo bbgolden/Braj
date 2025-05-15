@@ -36,7 +36,11 @@ export default function RunLogScreen() {
         <View style={styles.previewBox}>
           <Text style={styles.text}>
             Date - { lastDate }
-            Distance - { lastDistance }
+            </Text>
+            <Text style={styles.text}>
+            Distance - { lastDistance } mi
+            </Text>
+             <Text style={styles.text}>
             Time - { renderTime(lastTime) }
           </Text>
         </View>
