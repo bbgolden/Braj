@@ -25,13 +25,7 @@ export default function AccountScreen() {
 
       </View>
 
-      <Link href={"/list" as Href}>
-        <View style={styles.previewBox}>
-          <Text style={styles.text}>
-            last run box
-          </Text>
-        </View>
-      </Link>
+      
       <View style={styles.preview}>
 
 
