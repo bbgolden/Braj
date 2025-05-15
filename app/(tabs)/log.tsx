@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useFocusEffect } from "expo-router";
+import { useCallback, useState } from "react";
 import { StyleSheet, Text, View, useWindowDimensions } from "react-native";
 import { getItem, renderTime } from "../../utils/Storage.js";
 
@@ -9,25 +10,27 @@ export default function RunLogScreen() {
   const [lastDate, setLastDate] = useState("");
   const styles = useStyles();
 
-  useEffect(() => {
-    const firstLoad = async () => {
-      try {
-        const savedLastDistance = await getItem("last_distance");
-        setLastDistance(savedLastDistance === null ? 0 : savedLastDistance);
-    
-        const savedLastTime = await getItem("last_time");
-        setLastTime(savedLastTime === null ? 0 : savedLastTime);
+  useFocusEffect(
+    useCallback(() => {
+      const firstLoad = async () => {
+        try {
+          const savedLastDistance = await getItem("last_distance");
+          setLastDistance(savedLastDistance === null ? 0 : savedLastDistance);
+      
+          const savedLastTime = await getItem("last_time");
+          setLastTime(savedLastTime === null ? 0 : savedLastTime);
 
-        const savedLastDate = await getItem("last_date");
-        setLastDate(savedLastDate === null ? "" : savedLastDate);
-        console.log(lastDate);
-      } catch(error) {
-        console.log(error);
-      }
-    };
-    
-    firstLoad();
-  }, []);
+          const savedLastDate = await getItem("last_date");
+          setLastDate(savedLastDate === null ? "" : savedLastDate);
+          console.log(lastDate);
+        } catch(error) {
+          console.log(error);
+        }
+      };
+      
+      firstLoad();
+    }, [])
+  );
 
   return (
       <View style={styles.container}>
