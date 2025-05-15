@@ -30,7 +30,7 @@ export default function StartRunScreen() {
                 keyboardType="numeric"
             />
 
-            <Text>
+            <Text style={styles.text}>
                 { minutes < 10 ? "0" + minutes : minutes }:{ seconds < 10 ? "0" + seconds : seconds}
             </Text>
 
