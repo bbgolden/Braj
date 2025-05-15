@@ -95,6 +95,8 @@ export default function StartRunScreen() {
                     saveLastDate("" + (new Date().getMonth() + 1) + "/" + new Date().getDate() + "/" + new Date().getFullYear());
                     saveTotalDistance(distance);
                     saveTotalTime(minutes * 60 + seconds);
+                    setSeconds(0);
+                    setMinutes(0);
                     router.push("/");
                 }}
             >  
