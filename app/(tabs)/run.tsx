@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { StyleSheet, Text, TouchableHighlight, View, useWindowDimensions } from "react-native";
+import { StyleSheet, Text, TextInput, TouchableHighlight, View, useWindowDimensions } from "react-native";
 
 export default function StartRunScreen() {
 
     const [seconds, setSeconds] = useState(0);
     const [minutes, setMinutes] = useState(0);
     const [run, toggleRun] = useState(false);
+    const [distance, setDistance] = useState(0);
     const styles = useStyles();
 
     useEffect(() => {
@@ -24,7 +25,12 @@ export default function StartRunScreen() {
     return (
         <View style={styles.container}>
             
-            <Text style={styles.text}>
+            <TextInput
+                onChangeText={(val) => setDistance(Number(val))}
+                keyboardType="numeric"
+            />
+
+            <Text>
                 { minutes < 10 ? "0" + minutes : minutes }:{ seconds < 10 ? "0" + seconds : seconds}
             </Text>
 
