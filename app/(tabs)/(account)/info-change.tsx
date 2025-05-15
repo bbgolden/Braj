@@ -14,7 +14,7 @@ export default function InfoChangeScreen() {
 
             <TextInput
                 onChangeText={(val) => setName(val)}
-                placeholder={"Enter a new name..."}
+                value={name}
             />
 
             <TouchableHighlight 
@@ -24,7 +24,7 @@ export default function InfoChangeScreen() {
                 }}
             >
                 <Text>
-                    submit
+                    Submit
                 </Text>
             </TouchableHighlight>
 
