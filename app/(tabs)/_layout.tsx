@@ -29,7 +29,7 @@ export default function TabLayout() {
             <Tabs.Screen 
                 name="log" 
                 options={{
-                    title: "Run Log",
+                    title: "Last Run",
                     tabBarIcon: ({ color, focused }) => (
                         <Ionicons name={focused ? "list-circle-sharp" : "list-circle-outline"} color={color} size={24}/>
                     ), 

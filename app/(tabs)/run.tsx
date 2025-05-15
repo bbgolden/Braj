@@ -20,6 +20,18 @@ export default function StartRunScreen() {
 
     const saveTotalTime = async (newTime: number) => {
         await setItem("total_time", totalTime + newTime);
+    };
+
+    const saveLastDistance = async (lastDistance: number) => {
+        await setItem("last_distance", lastDistance);
+    };
+
+    const saveLastTime = async (lastTime: number) => {
+        await setItem("last_time", lastTime);
+    };
+
+    const saveLastDate = async (lastDate: String) => {
+        await setItem("last_date", lastDate);
     }
 
     useEffect(() => {
@@ -73,6 +85,9 @@ export default function StartRunScreen() {
 
             <TouchableHighlight 
                 onPress={() => {
+                    saveLastDistance(distance);
+                    saveLastTime(minutes * 60 + seconds);
+                    saveLastDate(Date());
                     saveTotalDistance(distance);
                     saveTotalTime(minutes * 60 + seconds);
                     router.push("/");

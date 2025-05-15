@@ -1,20 +1,13 @@
 import { Href, Link } from "expo-router";
 import { useEffect, useState } from "react";
 import { Image, StyleSheet, Text, useWindowDimensions, View } from "react-native";
-import { getItem } from "../../../utils/Storage.js";
+import { getItem, renderTime } from "../../../utils/Storage.js";
 
 export default function AccountScreen() {
 
   const [totalDistance, setTotalDistance] = useState(0);
   const [totalTime, setTotalTime] = useState(0);
   const styles = useStyles();
-
-  const renderTime = (seconds: number) => {
-    const minutes = Math.floor(seconds / 60);
-    const remainderSeconds = seconds % 60;
-
-    return (minutes < 10 ? "0" + minutes : "" + minutes) + ":" + (remainderSeconds < 10 ? "0" + remainderSeconds : remainderSeconds);
-  }
 
   useEffect(() => {
           const firstLoad = async () => {
@@ -30,7 +23,7 @@ export default function AccountScreen() {
           };
   
           firstLoad();
-      }, []);
+  }, []);
 
   return (
     <View style={styles.container}>
