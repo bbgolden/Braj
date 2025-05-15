@@ -38,7 +38,7 @@ export default function RunLogScreen() {
             Date - { lastDate }
             </Text>
             <Text style={styles.text}>
-            Distance - { lastDistance } mi
+            Distance - { lastDistance } miles
             </Text>
              <Text style={styles.text}>
             Time - { renderTime(lastTime) }

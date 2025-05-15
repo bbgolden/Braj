@@ -1,5 +1,5 @@
-import { Href, Link } from "expo-router";
-import { useEffect, useState } from "react";
+import { Href, Link, useFocusEffect } from "expo-router";
+import { useCallback, useState } from "react";
 import { Image, StyleSheet, Text, useWindowDimensions, View } from "react-native";
 import { getItem, renderTime } from "../../../utils/Storage.js";
 
@@ -9,7 +9,7 @@ export default function AccountScreen() {
   const [totalTime, setTotalTime] = useState(0);
   const styles = useStyles();
 
-  useEffect(() => {
+  useFocusEffect(useCallback(() => {
           const firstLoad = async () => {
               try {
                   const savedTotalDistance = await getItem("total_distance");
@@ -23,7 +23,8 @@ export default function AccountScreen() {
           };
   
           firstLoad();
-  }, []);
+    }, [])
+  );
 
   return (
     <View style={styles.container}>
