@@ -92,7 +92,7 @@ export default function StartRunScreen() {
                 onPress={() => {
                     saveLastDistance(distance);
                     saveLastTime(minutes * 60 + seconds);
-                    saveLastDate(Date());
+                    saveLastDate("" + (new Date().getMonth() + 1) + "/" + new Date().getDate() + "/" + new Date().getFullYear());
                     saveTotalDistance(distance);
                     saveTotalTime(minutes * 60 + seconds);
                     router.push("/");
