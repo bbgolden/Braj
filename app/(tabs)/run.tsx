@@ -24,7 +24,7 @@ export default function StartRunScreen() {
         <View style={styles.container}>
             
             <Text>
-                { minutes < 10 ? "0" + minutes : minutes }:{ seconds < 10 ? "0" + seconds : seconds} {run}
+                { minutes < 10 ? "0" + minutes : minutes }:{ seconds < 10 ? "0" + seconds : seconds}
             </Text>
 
             <TouchableHighlight onPress={() => toggleRun(!run)}>

@@ -1,5 +1,5 @@
 import { useRouter } from "expo-router";
-import { useState, } from "react";
+import { useState } from "react";
 import { Text, TextInput, TouchableHighlight, View } from "react-native";
 import { setItem } from "../../../utils/Storage.js";
 

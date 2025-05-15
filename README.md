@@ -2,7 +2,7 @@
 A mobile apps project by Brennan Chiu and Taj Bhattacharjee.
 
 ## Run Instructions
-Some dependencies have been added to ```.gitignore``` to save space in the repository and create cleaner pulls and pushes. To install the dependencies, run ```npm install``` and wait for ```node_modules``` to load. To start the app after installing dependencies, run ```npx expo start``` and scan the QR code or open the ```localhost:8081``` port.
+Some dependencies have been added to ```.gitignore``` to save space in the repository and create cleaner pulls and pushes. To install the dependencies, run ```npm install``` and wait for ```node_modules``` to load. To start the app after installing dependencies, run ```npx expo start``` and scan the QR code. Avoid running the web version, as there are multiple dependencies that do not function out of mobile.
 
 ## Goals and Features
 Braj is a mobile app that allows users to track runs and log them alongside relevant information like speed and duration. It also incorporates a social media aspect that allows users to connect with other runners, finding people who travel similar routes to allow for mutual benefit
