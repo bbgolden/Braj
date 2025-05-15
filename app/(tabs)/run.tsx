@@ -30,7 +30,7 @@ export default function StartRunScreen() {
 
             <TouchableHighlight onPress={() => toggleRun(!run)}>
                 <Text>
-                    { run ? "stop" : "start" }
+                    { run ? "Stop" : "Start" }
                 </Text>
             </TouchableHighlight>
 
