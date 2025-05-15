@@ -1,5 +1,7 @@
+import { useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, TextInput, TouchableHighlight, View, useWindowDimensions } from "react-native";
+import { getItem, setItem } from "../../utils/Storage.js";
 
 export default function StartRunScreen() {
 
@@ -7,7 +9,18 @@ export default function StartRunScreen() {
     const [minutes, setMinutes] = useState(0);
     const [run, toggleRun] = useState(false);
     const [distance, setDistance] = useState(0);
+    const [totalDistance, setTotalDistance] = useState(0);
+    const [totalTime, setTotalTime] = useState(0);
     const styles = useStyles();
+    const router = useRouter();
+
+    const saveTotalDistance = async (newDistance: number) => {
+        await setItem("total_distance", totalDistance + newDistance);
+    };
+
+    const saveTotalTime = async (newTime: number) => {
+        await setItem("total_time", totalTime + newTime);
+    }
 
     useEffect(() => {
         if(!run) return;
@@ -21,6 +34,22 @@ export default function StartRunScreen() {
 
         return () => clearInterval(interval);
     }, [run, seconds]);
+
+    useEffect(() => {
+        const firstLoad = async () => {
+            try {
+                const savedTotalDistance = await getItem("total_distance");
+                setTotalDistance(savedTotalDistance === null ? 0 : savedTotalDistance);
+
+                const savedTotalTime = await getItem("total_time");
+                setTotalTime(savedTotalTime === null ? 0 : savedTotalTime);
+            } catch(error) {
+                console.log(error);
+            }
+        };
+
+        firstLoad();
+    }, []);
 
     return (
         <View style={styles.container}>
@@ -40,6 +69,18 @@ export default function StartRunScreen() {
                         { run ? "Stop" : "Start" }
                     </Text>
                 </View>
+            </TouchableHighlight>
+
+            <TouchableHighlight 
+                onPress={() => {
+                    saveTotalDistance(distance);
+                    saveTotalTime(minutes * 60 + seconds);
+                    router.push("/");
+                }}
+            >  
+                <Text>
+                    Submit
+                </Text>
             </TouchableHighlight>
 
         </View>

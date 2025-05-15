@@ -1,10 +1,36 @@
 import { Href, Link } from "expo-router";
+import { useEffect, useState } from "react";
 import { Image, StyleSheet, Text, useWindowDimensions, View } from "react-native";
 import { getItem } from "../../../utils/Storage.js";
 
 export default function AccountScreen() {
 
+  const [totalDistance, setTotalDistance] = useState(0);
+  const [totalTime, setTotalTime] = useState(0);
   const styles = useStyles();
+
+  const renderTime = (seconds: number) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainderSeconds = seconds % 60;
+
+    return (minutes < 10 ? "0" + minutes : "" + minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
+  }
+
+  useEffect(() => {
+          const firstLoad = async () => {
+              try {
+                  const savedTotalDistance = await getItem("total_distance");
+                  setTotalDistance(savedTotalDistance === null ? 0 : savedTotalDistance);
+  
+                  const savedTotalTime = await getItem("total_time");
+                  setTotalTime(savedTotalTime === null ? 0 : savedTotalTime);
+              } catch(error) {
+                  console.log(error);
+              }
+          };
+  
+          firstLoad();
+      }, []);
 
   return (
     <View style={styles.container}>
@@ -36,7 +62,12 @@ export default function AccountScreen() {
       </Text>
 
       <View style={styles.statsBox}>
-
+        <Text>
+          Total Distance: {totalDistance} miles
+          Total Time: {renderTime(totalTime)}
+          Average Speed: { totalDistance / (totalTime / 3600) } miles per hour
+          Average Pace: { renderTime(totalTime / totalDistance) }
+        </Text>
       </View>
 
     </View>
