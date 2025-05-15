@@ -35,9 +35,11 @@ export default function StartRunScreen() {
             </Text>
 
             <TouchableHighlight onPress={() => toggleRun(!run)}>
-                <Text>
-                    { run ? "Stop" : "Start" }
-                </Text>
+                <View style={styles.button}>
+                    <Text>
+                        { run ? "Stop" : "Start" }
+                    </Text>
+                </View>
             </TouchableHighlight>
 
         </View>
@@ -53,6 +55,23 @@ const useStyles = () => {
       backgroundColor: "#545454",
       alignItems: "center",
     },
+    button: {
+        backgroundColor: "#ec690d",
+        height: height / 15,
+        width: 2 * width / 7,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 17,
+        borderWidth: 3,
+        borderColor: 'blue',
+        marginTop: height/50
+    },
+    text: {
+        fontFamily: 'Avenir',
+        fontSize: height / 50,
+        textAlign: 'center',
+        color: 'white'
+    }
   });
 
   return styles;

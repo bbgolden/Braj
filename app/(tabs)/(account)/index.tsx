@@ -20,13 +20,22 @@ export default function AccountScreen() {
         </Text>
       </Link>
 
+      <View style={styles.preview}>
+
+
+      </View>
+
       <Link href={"/list" as Href}>
         <View style={styles.previewBox}>
-          <Text>
+          <Text style={styles.text}>
             last run box
           </Text>
         </View>
       </Link>
+      <View style={styles.preview}>
+
+
+      </View>
 
       <Text style={styles.header}>
         Overall Stats
@@ -60,18 +69,34 @@ const useStyles = () => {
       fontSize: height / 40,
       color: "#ca4d0b",
       fontWeight: "bold",
+      marginBottom: 20,
     },
     previewBox: {
+      marginHorizontal: 20,
+      marginVertical: 20,
       height: height / 4,
       width: width * 4 / 5,
       borderWidth: 2,
       borderColor: "#ec690d",
+    },
+    preview: {
+      marginHorizontal: 20,
+      marginVertical: 20,
+      height: height / 20,
+      width: width * 4 / 5,
+
     },
     statsBox: {
       height: height / 3,
       width: width,
       alignItems: "center",
       justifyContent: "center",
+    },
+    text: {
+        fontFamily: 'Avenir',
+        fontSize: height / 50,
+        textAlign: 'center',
+        color: 'white'
     }
   });
 
