@@ -1,6 +1,9 @@
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, useWindowDimensions } from "react-native";
 
 export default function RunDetailScreen() {
+
+    const styles = useStyles();
+
     return (
         <View style={styles.container}>
 
@@ -8,9 +11,16 @@ export default function RunDetailScreen() {
     )
 }
 
-const styles = StyleSheet.create({
+const useStyles = () => {
+  const {height, width} = useWindowDimensions();
+
+  const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: "#545454",
-    }
-});
+      flex: 1,
+      backgroundColor: "#545454",
+      alignItems: "center",
+    },
+  });
+
+  return styles;
+};

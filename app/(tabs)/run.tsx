@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
+import { StyleSheet, Text, TouchableHighlight, View, useWindowDimensions } from "react-native";
 
 export default function StartRunScreen() {
 
     const [seconds, setSeconds] = useState(0);
     const [minutes, setMinutes] = useState(0);
     const [run, toggleRun] = useState(false);
+    const styles = useStyles();
 
     useEffect(() => {
         if(!run) return;
@@ -37,9 +38,16 @@ export default function StartRunScreen() {
     )
 }
 
-const styles = StyleSheet.create({
+const useStyles = () => {
+  const {height, width} = useWindowDimensions();
+
+  const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: "#545454",
-    }
+      alignItems: "center",
+    },
   });
+
+  return styles;
+};
