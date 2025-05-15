@@ -1,14 +1,14 @@
 import { StyleSheet, View, useWindowDimensions } from "react-native";
 
-export default function RunDetailScreen() {
+export default function RunLogScreen() {
+  
+  const styles = useStyles();
 
-    const styles = useStyles();
-
-    return (
-        <View style={styles.container}>
-
-        </View>
-    )
+  return (
+      <View style={styles.container}>
+        
+      </View>
+  );
 }
 
 const useStyles = () => {
