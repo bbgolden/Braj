@@ -65,7 +65,7 @@ export default function AccountScreen() {
           Average Speed: { totalDistance / (totalTime / 3600) } miles per hour
           </Text>
           <Text style={styles.text}>
-          Average Pace: { renderTime(totalTime / totalDistance) }
+          Average Pace: { renderTime(Math.round(totalTime / totalDistance)) }
         </Text>
       </View>
 
