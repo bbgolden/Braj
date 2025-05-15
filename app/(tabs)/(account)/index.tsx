@@ -13,7 +13,7 @@ export default function AccountScreen() {
     const minutes = Math.floor(seconds / 60);
     const remainderSeconds = seconds % 60;
 
-    return (minutes < 10 ? "0" + minutes : "" + minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds);
+    return (minutes < 10 ? "0" + minutes : "" + minutes) + ":" + (remainderSeconds < 10 ? "0" + remainderSeconds : remainderSeconds);
   }
 
   useEffect(() => {
