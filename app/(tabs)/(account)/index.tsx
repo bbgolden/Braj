@@ -9,20 +9,21 @@ export default function AccountScreen() {
   const [totalTime, setTotalTime] = useState(0);
   const styles = useStyles();
 
-  useFocusEffect(useCallback(() => {
-          const firstLoad = async () => {
-              try {
-                  const savedTotalDistance = await getItem("total_distance");
-                  setTotalDistance(savedTotalDistance === null ? 0 : savedTotalDistance);
+  useFocusEffect(
+    useCallback(() => {
+      const firstLoad = async () => {
+          try {
+              const savedTotalDistance = await getItem("total_distance");
+              setTotalDistance(savedTotalDistance === null ? 0 : savedTotalDistance);
   
-                  const savedTotalTime = await getItem("total_time");
-                  setTotalTime(savedTotalTime === null ? 0 : savedTotalTime);
-              } catch(error) {
-                  console.log(error);
-              }
-          };
+              const savedTotalTime = await getItem("total_time");
+              setTotalTime(savedTotalTime === null ? 0 : savedTotalTime);
+          } catch(error) {
+              console.log(error);
+          }
+      };
   
-          firstLoad();
+      firstLoad();
     }, [])
   );
 

@@ -1,5 +1,5 @@
-import { useRouter } from "expo-router";
-import { useEffect, useState } from "react";
+import { useFocusEffect, useRouter } from "expo-router";
+import { useCallback, useEffect, useState } from "react";
 import { StyleSheet, Text, TextInput, TouchableHighlight, View, useWindowDimensions } from "react-native";
 import { getItem, setItem } from "../../utils/Storage.js";
 
@@ -47,21 +47,23 @@ export default function StartRunScreen() {
         return () => clearInterval(interval);
     }, [run, seconds]);
 
-    useEffect(() => {
-        const firstLoad = async () => {
-            try {
-                const savedTotalDistance = await getItem("total_distance");
-                setTotalDistance(savedTotalDistance === null ? 0 : savedTotalDistance);
+    useFocusEffect(
+        useCallback(() => {
+            const firstLoad = async () => {
+                try {
+                    const savedTotalDistance = await getItem("total_distance");
+                    setTotalDistance(savedTotalDistance === null ? 0 : savedTotalDistance);
 
-                const savedTotalTime = await getItem("total_time");
-                setTotalTime(savedTotalTime === null ? 0 : savedTotalTime);
-            } catch(error) {
-                console.log(error);
-            }
-        };
+                    const savedTotalTime = await getItem("total_time");
+                    setTotalTime(savedTotalTime === null ? 0 : savedTotalTime);
+                } catch(error) {
+                    console.log(error);
+                }
+            };
 
-        firstLoad();
-    }, []);
+            firstLoad();
+        }, [])
+    );
 
     return (
         <View style={styles.container}>
