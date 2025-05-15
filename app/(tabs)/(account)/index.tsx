@@ -55,10 +55,16 @@ export default function AccountScreen() {
       </Text>
 
       <View style={styles.statsBox}>
-        <Text>
+        <Text style={styles.text}>
           Total Distance: {totalDistance} miles
+          </Text>
+          <Text style={styles.text}>
           Total Time: {renderTime(totalTime)}
+          </Text>
+          <Text style={styles.text}>
           Average Speed: { totalDistance / (totalTime / 3600) } miles per hour
+          </Text>
+          <Text style={styles.text}>
           Average Pace: { renderTime(totalTime / totalDistance) }
         </Text>
       </View>

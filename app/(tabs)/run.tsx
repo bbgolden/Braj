@@ -66,10 +66,15 @@ export default function StartRunScreen() {
     return (
         <View style={styles.container}>
             
+            <Text style={styles.text}>
+                    Distance in Miles:
+                </Text>
+            <View style={styles.textInput}>
             <TextInput
                 onChangeText={(val) => setDistance(Number(val))}
                 keyboardType="numeric"
             />
+            </View>
 
             <Text style={styles.text}>
                 { minutes < 10 ? "0" + minutes : minutes }:{ seconds < 10 ? "0" + seconds : seconds}
@@ -93,7 +98,7 @@ export default function StartRunScreen() {
                     router.push("/");
                 }}
             >  
-                <Text>
+                <Text style={styles.text}>
                     Submit
                 </Text>
             </TouchableHighlight>
@@ -127,7 +132,13 @@ const useStyles = () => {
         fontSize: height / 50,
         textAlign: 'center',
         color: 'white'
-    }
+    },
+    textInput: {
+        height: height / 15,
+        width: 8 * width / 10,
+        borderWidth: 3,
+        marginTop: 10
+    },
   });
 
   return styles;
