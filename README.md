@@ -5,14 +5,14 @@ A mobile apps project by Brennan Chiu and Taj Bhattacharjee.
 Some dependencies have been added to ```.gitignore``` to save space in the repository and create cleaner pulls and pushes. To install the dependencies, run ```npm install``` and wait for ```node_modules``` to load. To start the app after installing dependencies, run ```npx expo start``` and scan the QR code. Avoid running the web version, as there are multiple dependencies that do not function out of mobile.
 
 ## Goals and Features
-Braj is a mobile app that allows users to track runs and log them alongside relevant information like speed and duration. It also incorporates a social media aspect that allows users to connect with other runners, finding people who travel similar routes to allow for mutual benefit
+Braj is a mobile app that allows users to track runs and log them alongside relevant information like speed and duration.
 - Track location
 - Save previous runs
-- Social media network
 - Preset saved runs
 - Stat tracking over time
 
 ## Architecture
+Data is stored asynchronously using AsyncStorage, allowing for persistent app memory.
 ### Overview Screen
 - Account information
 - Most recent run
@@ -27,9 +27,3 @@ Braj is a mobile app that allows users to track runs and log them alongside rele
 - Allows user to start run
 - Button that starts run timer
 - Select route from available
-
-### Social Media Network
-- Displays other users and their runs
-- Allows users to find other runners with similar run information/statistics
-- Stores user data in txt file to replicate database
-- Database is updated based on current user actions
